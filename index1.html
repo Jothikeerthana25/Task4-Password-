@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: url(bck1.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensure body takes up full height of viewport */
+        }
+
+        h1 {
+            color: white;
+            margin-top: 50px;
+            font-size: 2.5em;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+            background: transparent;
+            padding: 90px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-container i {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: blue;
+            pointer-events: none; /* Prevent clicks on icon */
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: blue;
+        }
+
+        label {
+            font-weight: bold;
+            text-align: left;
+            color: white;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: darkgreen;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+
+        .forgot-password {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0;
+            text-decoration: none;
+            color: white;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        h4 {
+            color: white;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            input {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background: url(cl.jpg) no-repeat;
+                background-size: cover;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            input {
+                padding: 7px;
+            }
+        }
+    </style>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('pass');
+            const icon = document.getElementById('lock-icon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-lock');
+                icon.classList.add('fa-lock-open');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-lock-open'); 
+                icon.classList.add('fa-lock');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to Login Page</h1>
+    <div class="container">
+        <form>
+            <label for="username">Username:</label>
+            <div class="input-container">
+                <input type="text" id="username" placeholder="Enter Username" required>
+                <i class="fas fa-user"></i> <!-- User icon -->
+            </div>
+
+            <label for="pass">Password:</label>
+            <div class="password-container">
+                <input type="password" id="pass" placeholder="Enter Password" required>
+                <span class="toggle-password" onclick="togglePassword()">
+                    <i class="fas fa-lock" id="lock-icon"></i> <!-- Default closed lock -->
+                </span>
+            </div>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+
+            <input type="submit" value="Login">
+            <h4><a href="newreg1.html">Do you want to create an account? Sign Up</a></h4>
+        </form>
+    </div>
+</body>
+</html>
